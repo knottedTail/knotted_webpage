@@ -1,0 +1,44 @@
+h1 {
+    text-align: center;
+    border-bottom:1px solid gray;
+    padding: 24px;
+    margin-bottom: 0px;
+}
+
+iframe {
+    /* text-align: middle; */
+    display: block;
+    border: 3px;
+    margin: 0 auto;
+}
+
+body {
+    margin:0;
+}
+
+#grid{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+#grid ol {
+    border-right: 1px solid gray;
+    width: 128px;
+    margin-top: 0;
+    padding-top: 48px;
+    padding-left: 48px;
+}
+
+@media(max-width: 800px) {
+    #grid {
+        display: block;
+    }
+
+    #grid ol {
+        text-align: center;
+        border-right: none;
+        padding: none;
+        margin: none;
+        width:auto;
+    }
+}
