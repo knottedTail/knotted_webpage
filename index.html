@@ -1,0 +1,120 @@
+<!doctype html5>
+<html>
+    <head>
+        <title> home.html </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="463041322252-4mb8hgo1qpdjtn6bdhqcqik644d1pna1.apps.googleusercontent.com">
+        <script>
+            function fetchArticle(articleFileName) {
+                fetch(articleFileName).then(function(response){
+                    response.text().then(function(text){
+                        document.querySelector('article').innerHTML = text;
+                    })
+                });
+
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Name: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            }
+
+                
+
+            // if(location.hash) {
+            //     // console.log(location.hash.substr(2));
+            //     fetchArticle(console.log(location.hash.substr(2)));
+            // }
+                // if(location.hash) {
+                //     fetchArticle(location.hash.substr(2));
+
+                // }
+                // } else {
+                //     fetchArticle('welcome');
+                // };
+            }
+        </script>
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Name: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                };
+        </script>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </head>
+
+<!-- <body style="background-color:black;color:powderblue"> -->
+    <body>
+
+        <div style="display: grid;grid-template-columns: 1fr 120px;">
+            <div><h1>이것이야말로 한글 아니 부피가설</h1></div>
+            <div style="margin:auto">
+                <input id="dnbutton" type="button" value="Day and Night" onclick="
+                bgcolor = document.querySelector('body').style.backgroundColor;
+                if(bgcolor != 'black') {
+                    document.querySelector('body').style.backgroundColor = 'black';
+                    document.querySelector('body').style.color = 'white';
+                } else {
+                    document.querySelector('body').style.backgroundColor = 'white';
+                    document.querySelector('body').style.color = 'black';
+                }            
+                ">
+            </div>
+            <div className="g-signin2" data-onsuccess="onSignIn"></div>            
+        </div>
+        
+        <div id="dnbutton-div"></div>
+        <div id="grid">
+            <div>   
+                <ol id="nav">
+                </ol>
+            </div>
+            <div>
+                <article></article>
+                <script>
+                    if(location.hash){
+                        fetchArticle(location.hash.substr(2));
+                    } else {
+                        fetchArticle('welcome');
+                    }
+
+                    fetch('list').then(function(response){
+                        response.text().then(function(text){
+                            // <li> <a href="#!HTML" onclick="fetchArticle('HTML')"> HTML </li>
+                            var items = text.split(',');
+                            for (item of items) {
+                                item = item.trim();
+                                document.querySelector('#nav').innerHTML += '<li> <a href="#!' + item + '" onclick="fetchArticle(\'' + item + '\')">' + item + "</li>";
+                            }
+                            // document.querySelector('#nav').innerHTML = text;
+                        })
+
+                    })
+                </script>
+                <!-- <h2> 테스트하기 위한 제목 </h2>
+                바로바로 바뀌는 상황을 보고싶으시다면 수정을 하면서  저장을 하시면  되겠습니다 <br> 끼얏호 <br>
+                Hypertext Markup Language (HTML) is the standard markup <br> 
+                language for <strong>CREATING</strong> <u> web</u> and web applications. <br> <br>
+                
+                <ul>
+                    <li> a. 힘들다 </li>
+                    <li> b. 안 힘들다 </li>
+                </ul>
+
+                <p> 
+                    <a href="https://naver.com" target="_blank" title="Tooltip!">링크테스트</a>
+                </p>
+
+                <p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/HkULXAtHx7E" title="YouTube video player" frameborder="0" allow="align-items; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </p> -->
+            </div>
+        </div>
+    </body>
+</html>

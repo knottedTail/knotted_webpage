@@ -18,11 +18,12 @@ body {
 
 #grid{
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px 1fr 0.3fr;
 }
 
 #grid ol {
     border-right: 1px solid gray;
+    text-align: left;
     width: 128px;
     margin-top: 0;
     padding-top: 48px;
@@ -35,10 +36,22 @@ body {
     }
 
     #grid ol {
-        text-align: center;
+        /* text-align: center; */
         border-right: none;
         padding: none;
         margin: none;
         width:auto;
     }
+}
+
+#dnbutton-div{
+    text-align: right;
+    margin-right: 12px;
+    margin-top: 12px;
+}
+#dnbutton{
+/* input[type="button"]{ */
+    /* align-items: right; */
+    width: 108px;
+    height: 64px;
 }
