@@ -9,26 +9,60 @@ const BlogPage = ({ data }) => {
             <p> It's s o cool TO be complicated </p>
             <ul>
                 {
-                    data.allFile.nodes.map(node => (
-                        <li key={node.name}>
-                            <a href={`/blog/`+node.name}>{node.name}</a>
-                        </li>
+                    data.allMdx.nodes.map(node => (
+                        <article key={node.id}>
+                            <h2>{node.frontmatter.title}</h2>
+                            <p>Posted: {node.frontmatter.date}</p>
+                            <p> {node.excerpt} </p>
+                        </article>
                     ))
+                    // data.allMdx.edges.map(edge => (
+                    //     <article key={edge.node.id}>
+                    //         <h2>{edge.node.frontmatter.title}</h2>
+                    //         <p>Posted: {edge.node.frontmatter.date}</p>
+                    //         <p> {edge.node.excerpt} </p>
+                    //     </article>
+                    // ))
                 }
             </ul>
         </Layout>
     )
 }
 
+// export const query = graphql`
+// query {
+//     allMdx(sort: {frontmatter: {date: DESC}}) {
+//       edges {
+//         node {
+//           frontmatter {
+//             date(formatString: "MMMM D, YYYY")
+//             title
+//             slug
+//           }
+//           excerpt
+//           id
+//         }
+//       }
+//     }
+//   }
+// `
+
 export const query = graphql`
-    query {
-        allFile(filter: {sourceInstanceName: {eq: "posts"}}) {
-            nodes {
-                name
-            }
+query {
+    allMdx(sort: {frontmatter: {date: DESC}}) {
+      nodes {
+        id
+        frontmatter {
+          date
+          slug
+          title
         }
+        excerpt
+      }
     }
+  }
 `
+
 export const Head = () => <Seo title="My first B-log post"/>
 
 export default BlogPage
