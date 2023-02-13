@@ -3,11 +3,15 @@ import * as React from 'react'
 import Layout from "../components/layout"
 import MyComponent from '../components/my-component'
 import { StaticImage } from 'gatsby-plugin-image'
+// import Header from '../components/header'
+import Seo from '../components/seo'
+import useSiteMetadata from '../components/useSiteMetadata'
 
 // Step 2: Define your component
 const IndexPage = () => {
   return (
     <Layout pageTitle="HOME page">
+      {/* <Header></Header> */}
       <p>I'm making this by following the Gatsby Tutorial.</p>
       <StaticImage
         alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
@@ -26,7 +30,11 @@ const IndexPage = () => {
 }
 
 // You'll learn about this in the next task, just copy it for now
-export const Head = () => <title>Home Page</title>
+// export const Head = () => <title>Home Page</title>
+// export const Head = () => <Seo title="Home page"></Seo>
+
+export const Head = () => <Seo title={useSiteMetadata}></Seo>
+
 
 // Step 3: Export your component
 export default IndexPage
