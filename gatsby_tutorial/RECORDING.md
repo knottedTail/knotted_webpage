@@ -6,7 +6,7 @@ Gatsby tutorials
 * [Part 4, Query and GraphQL, page query!](https://www.gatsbyjs.com/docs/tutorial/part-4/)
     * NEED a source plugin for each specific source type (to pull data to the site)
 * [Part 5, Dealing with .mdx files(transforming from File nodes to MDX nodes), graphQL frontmatter, formatString](https://www.gatsbyjs.com/docs/tutorial/part-5/)
-* [Part 6, Programmatically generating pages](https://www.gatsbyjs.com/docs/tutorial/part-6/)
+* [Part 6, Programmatically generating pages, slugify, query variables, ](https://www.gatsbyjs.com/docs/tutorial/part-6/)
 
 
 **Appendix**
