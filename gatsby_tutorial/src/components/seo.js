@@ -15,7 +15,7 @@ const Seo = ({ title }) => {
   const _sitetitle = useSiteMetadata()
   return (
     // <title>{title} | 1234 </title>
-    <title>{title} | { _sitetitle }</title>
+    <title> {title} | { _sitetitle } </title>
     // <title>{title} | {data.site.siteMetadata.title}</title>
     // <title> {title} | {useSiteMetadata()} </title>
     // <title> <useSiteMetadata></useSiteMetadata> </title>

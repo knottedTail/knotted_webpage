@@ -12,8 +12,6 @@ const useSiteMetadata = () => {
     }
   `)
 
-  console.log('cats', data.site.siteMetadata)
-
   return data.site.siteMetadata.title
 }
 

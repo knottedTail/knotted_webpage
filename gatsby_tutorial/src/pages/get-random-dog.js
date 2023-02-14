@@ -1,17 +1,15 @@
 import * as React from 'react'
+import Seo from '../components/seo'
+import { graphql } from 'gatsby'
 // import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 // import { StaticImage } from 'gatsby-plugin-image'
 
-const SSRPage = ({ serverData }) => {
+const SSRPage = ({ data, serverData }) => {
     // const { dogImage } = serverData
     // const image = getImage(dogImage)
-
-    // console.log("CATS:", dogImage)
-    // console.log("CATS:", dogImage.message)
-    // console.log("RATS:", image)
-
+    console.log(data.site.siteMetadata.title)
     return <div>
-        <h1> Hello! </h1>
+        <h1> { data.site.siteMetadata.title } </h1>
         {/* <StaticImage src={ dogImage.message } alt="123"/> */}
         <img alt="DOG?" src ={ serverData.message }/>
         {/* <GatsbyImage image={ image }/>
@@ -20,16 +18,18 @@ const SSRPage = ({ serverData }) => {
     </div>
 }
 
-// export const pageQuery = `graphql
-//     query PageData { 
-//         site {
-//             siteMetadata {
-//                 title
-//             }
-//         }
-//     }
-// `
-
+export const query = graphql`
+    query { 
+        site {
+            siteMetadata {
+                title
+            }
+        }
+    }
+`
+export const Head = () => (
+    <Seo title="About Page Damnnnnnn"> </Seo>
+)
 export default SSRPage
 
 export async function getServerData() {
